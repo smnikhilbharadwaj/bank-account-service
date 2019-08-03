@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bank-account-service
+  labels:
+    app: bank-account-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bank-account-service
+  template:
+    metadata:
+      labels:
+        app: bank-account-service
+    spec: 
+      containers:
+      - name: bank-account-service
+        image: smnikhilbharadwajsap/bankaccountservice
+        ports:
+        - containerPort: 8080
